@@ -1,4 +1,4 @@
-name: Netlib Keepalive
+name: keepalive-domain
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # 允许手动运行
 
 jobs:
-  auto_login_netlib:
+  auto_login:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,5 +27,6 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-          ACCOUNTS: ${{ secrets.ACCOUNTS }}
+          NETLIB_ACCOUNTS: ${{ secrets.NETLIB_ACCOUNTS }}
+          DNSHE_ACCOUNTS: ${{ secrets.DNSHE_ACCOUNTS }}
         run: npm start
